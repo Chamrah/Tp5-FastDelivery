@@ -1,54 +1,36 @@
-🚀 FastDelivery - Microservices Architecture
-FastDelivery is a startup specializing in managing deliveries for multiple e-commerce platforms. To improve scalability and flexibility, the system has been redesigned using a microservices-based architecture with MongoDB, Node.js, and Express.
+FastDelivery
+FastDelivery est une startup spécialisée dans la gestion des livraisons pour plusieurs plateformes e-commerce. Afin d'améliorer la scalabilité et la flexibilité, le système a été repensé en utilisant une architecture basée sur les microservices avec MongoDB, Node.js et Express.
 
-📌 Microservices Overview
-🛍️ Product Service: Manages product catalog.
+📌 Aperçu des Microservices
+-Service Produit : Gère le catalogue des produits.
+-Service Commande : Gère les commandes des clients.
+-Service Livraison : Gère l'expédition des commandes.
+-Service Authentification : Gère les utilisateurs (clients et transporteurs).
 
-📦 Order Service: Handles customer orders.
+⚙️ Fonctionnalités Clés
+✅ Modèles MongoDB indépendants pour chaque microservice.
+✅ Endpoints API REST pour des opérations CRUD fluides.
+✅ Authentification JWT pour un accès sécurisé.
+✅ Mise à jour du stock et gestion du statut des commandes.
+✅ Attribution automatique des transporteurs pour les livraisons.
 
-🚚 Delivery Service: Manages order shipments.
+📂 Endpoints API+
 
-🔐 Authentication Service: Manages users (customers & couriers).
+-Service Produit
+POST /produit/ajouter → Ajouter un nouveau produit.
+GET /produit/:id → Obtenir les détails d’un produit.
+PATCH /produit/:id/stock → Mettre à jour la quantité en stock.
 
-⚙️ Key Features
-✅ Independent MongoDB models for each microservice.
-✅ REST API endpoints for seamless CRUD operations.
-✅ JWT authentication for secure access.
-✅ Stock updates & order status management.
-✅ Automatic carrier assignment for deliveries.
+-Service Commande
+POST /commande/ajouter → Passer une nouvelle commande.
+GET /commande/:id → Récupérer les détails d’une commande.
+PATCH /commande/:id/statut → Mettre à jour le statut d’une commande.
 
-📂 API Endpoints
-🛍️ Product Service
-POST /produit/ajouter → Add a new product.
+-Service Livraison
+POST /livraison/ajouter → Assigner un transporteur et créer une livraison.
+PUT /livraison/:id → Mettre à jour le statut de la livraison.
 
-GET /produit/:id → Get product details.
-
-PATCH /produit/:id/stock → Update stock quantity.
-
-📦 Order Service
-POST /commande/ajouter → Place a new order.
-
-GET /commande/:id → Retrieve order details.
-
-PATCH /commande/:id/statut → Update order status.
-
-🚚 Delivery Service
-POST /livraison/ajouter → Assign a carrier & create delivery.
-
-PUT /livraison/:id → Update delivery status.
-
-🔐 Authentication Service
-POST /auth/register → Register a new user.
-
-POST /auth/login → Authenticate & receive a JWT token.
-
-GET /auth/profil → Get user details (JWT required).
-
-🛠 Tech Stack
-Backend: Node.js, Express
-
-Database: MongoDB
-
-Authentication: JWT
-
-Architecture: Microservices
+-Service Authentification
+POST /auth/register → Enregistrer un nouvel utilisateur.
+POST /auth/login → Authentifier et recevoir un token JWT.
+GET /auth/profil → Obtenir les détails d’un utilisateur (JWT requis).
